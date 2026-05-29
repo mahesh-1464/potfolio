@@ -1,0 +1,1395 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kodam Mahesh | 3D Animated Portfolio</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#020617;
+      color:white;
+      overflow-x:hidden;
+      cursor:none;
+    }
+
+    /* PARTICLES */
+
+    #particles-js{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:-2;
+    }
+
+    /* BACKGROUND */
+
+    body::before{
+
+      content:'';
+
+      position:fixed;
+
+      width:200%;
+      height:200%;
+
+      background:
+      radial-gradient(circle,#38bdf8 1px,transparent 1px);
+
+      background-size:40px 40px;
+
+      animation:bgMove 20s linear infinite;
+
+      opacity:0.08;
+
+      z-index:-1;
+
+    }
+
+    @keyframes bgMove{
+
+      0%{
+        transform:translate(0,0);
+      }
+
+      100%{
+        transform:translate(-200px,-200px);
+      }
+
+    }
+
+    /* CURSOR */
+
+    .cursor{
+
+      width:25px;
+      height:25px;
+
+      border:2px solid #38bdf8;
+
+      border-radius:50%;
+
+      position:fixed;
+
+      transform:translate(-50%,-50%);
+
+      pointer-events:none;
+
+      z-index:9999;
+
+      box-shadow:0 0 20px #38bdf8;
+
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+
+      position:fixed;
+
+      top:0;
+      left:0;
+
+      width:100%;
+
+      display:flex;
+
+      justify-content:space-between;
+
+      align-items:center;
+
+      padding:20px 8%;
+
+      background:rgba(255,255,255,0.05);
+
+      backdrop-filter:blur(12px);
+
+      border-bottom:1px solid rgba(255,255,255,0.1);
+
+      z-index:1000;
+
+    }
+
+    .logo{
+
+      font-size:30px;
+
+      font-weight:700;
+
+      color:#38bdf8;
+
+    }
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+
+      text-decoration:none;
+
+      color:white;
+
+      margin-left:25px;
+
+      transition:0.3s;
+
+      font-weight:500;
+
+    }
+
+    nav a:hover{
+
+      color:#38bdf8;
+
+    }
+
+    /* HERO */
+
+ .hero{
+
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  text-align:center;
+
+  padding:140px 10% 80px;
+
+}
+
+    .hero-content{
+
+      animation:float 4s ease-in-out infinite;
+
+    }
+
+    @keyframes float{
+
+      0%,100%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-15px);
+      }
+
+    }
+
+    /* PROFILE IMAGE */
+
+    .profile-img{
+
+      width:230px;
+      height:230px;
+
+      border-radius:50%;
+
+      object-fit:cover;
+
+      border:5px solid #38bdf8;
+
+      margin-bottom:30px;
+
+      animation:
+      profileFloat 4s ease-in-out infinite,
+      glow 3s infinite alternate;
+
+      box-shadow:0 0 40px #38bdf8;
+
+    }
+
+    @keyframes profileFloat{
+
+      0%,100%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-20px);
+      }
+
+    }
+
+    @keyframes glow{
+
+      0%{
+        box-shadow:0 0 20px #38bdf8;
+      }
+
+      100%{
+        box-shadow:
+        0 0 40px #38bdf8,
+        0 0 80px #38bdf8;
+      }
+
+    }
+
+    /* HERO TITLE */
+
+    .hero h1{
+
+      font-size:72px;
+
+      margin-bottom:20px;
+
+      background:linear-gradient(
+        90deg,
+        #38bdf8,
+        #818cf8,
+        #ec4899,
+        #38bdf8
+      );
+
+      background-size:300%;
+
+      -webkit-background-clip:text;
+
+      -webkit-text-fill-color:transparent;
+
+      animation:gradientMove 6s linear infinite;
+
+    }
+
+    @keyframes gradientMove{
+
+      0%{
+        background-position:0%;
+      }
+
+      100%{
+        background-position:300%;
+      }
+
+    }
+
+    .typing{
+
+      font-size:28px;
+
+      color:#cbd5e1;
+
+      height:40px;
+
+      margin-bottom:20px;
+
+    }
+
+    .hero p{
+
+      max-width:800px;
+
+      margin:auto;
+
+      line-height:1.8;
+
+      margin-bottom:35px;
+
+      color:#cbd5e1;
+
+    }
+
+    /* BUTTONS */
+
+    .hero-buttons{
+
+      display:flex;
+
+      justify-content:center;
+
+      gap:20px;
+
+      flex-wrap:wrap;
+
+    }
+
+    .btn{
+
+      padding:14px 32px;
+
+      border-radius:50px;
+
+      text-decoration:none;
+
+      font-weight:600;
+
+      transition:0.4s;
+
+      border:2px solid #38bdf8;
+
+    }
+
+    .primary{
+
+      background:#38bdf8;
+
+      color:black;
+
+    }
+
+    .secondary{
+
+      color:#38bdf8;
+
+    }
+
+    .btn:hover{
+
+      transform:translateY(-5px) scale(1.05);
+
+      box-shadow:0 0 25px #38bdf8;
+
+    }
+
+    /* SOCIAL ICONS */
+
+    .social-icons{
+
+      display:flex;
+
+      justify-content:center;
+
+      gap:20px;
+
+      margin-top:35px;
+
+    }
+
+    .social-icons img{
+
+      width:45px;
+
+      transition:0.4s;
+
+      filter:drop-shadow(0 0 10px #38bdf8);
+
+    }
+
+    .social-icons img:hover{
+
+      transform:
+      translateY(-10px)
+      rotate(10deg)
+      scale(1.2);
+
+    }
+
+    /* SECTION */
+
+    section{
+
+      padding:100px 10%;
+
+    }
+
+    .section-title{
+
+      text-align:center;
+
+      font-size:42px;
+
+      margin-bottom:60px;
+
+      color:#38bdf8;
+
+    }
+
+    /* GLASS CARD */
+
+    .glass-card{
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.1);
+
+      backdrop-filter:blur(15px);
+
+      border-radius:20px;
+
+      padding:30px;
+
+      transition:0.5s;
+
+      position:relative;
+
+      overflow:hidden;
+
+      transform-style:preserve-3d;
+
+    }
+
+    .glass-card::before{
+
+      content:'';
+
+      position:absolute;
+
+      width:200px;
+      height:200px;
+
+      background:rgba(56,189,248,0.08);
+
+      border-radius:50%;
+
+      top:-50px;
+      left:-50px;
+
+      transition:0.6s;
+
+    }
+
+    .glass-card:hover::before{
+
+      transform:scale(3);
+
+    }
+
+    .glass-card:hover{
+
+      transform:
+      rotateY(8deg)
+      rotateX(8deg)
+      scale(1.02);
+
+      box-shadow:0 0 40px rgba(56,189,248,0.3);
+
+    }
+
+    /* ABOUT */
+
+    #about p{
+      line-height:2;
+    }
+
+    /* SKILLS */
+
+    .skills-grid{
+
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(180px,1fr));
+
+      gap:25px;
+
+    }
+
+    .skill-card{
+
+      text-align:center;
+
+    }
+
+    .skill-card img{
+
+      width:70px;
+
+      margin-bottom:15px;
+
+      transition:0.5s;
+
+    }
+
+    .skill-card:hover img{
+
+      transform:
+      rotateY(360deg)
+      scale(1.2);
+
+    }
+
+    /* EXPERIENCE */
+
+    #experience ul{
+
+      padding-left:20px;
+
+      line-height:2;
+
+      margin-top:20px;
+
+    }
+
+    /* PROJECTS */
+
+    .projects-grid{
+
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(320px,1fr));
+
+      gap:30px;
+
+      align-items:stretch;
+
+    }
+
+    .project-card{
+
+      display:flex;
+
+      flex-direction:column;
+
+      justify-content:flex-start;
+
+      min-height:520px;
+
+    }
+
+    .project-img{
+
+      width:100%;
+
+      height:220px;
+
+      object-fit:cover;
+
+      border-radius:15px;
+
+      margin-bottom:20px;
+
+      transition:0.5s;
+
+      display:block;
+
+      border:2px solid rgba(255,255,255,0.1);
+
+    }
+
+    .project-card:hover .project-img{
+
+      transform:scale(1.05);
+
+    }
+
+    .project-card h3{
+
+      font-size:24px;
+
+      margin-bottom:15px;
+
+      color:#38bdf8;
+
+    }
+
+    .tech-stack{
+
+      margin-bottom:15px;
+
+      color:#cbd5e1;
+
+      line-height:1.8;
+
+    }
+
+    .project-card p{
+
+      line-height:1.8;
+
+      color:#e2e8f0;
+
+    }
+
+    /* EDUCATION */
+
+    #education p{
+      line-height:2;
+    }
+
+    /* CONTACT */
+
+    .contact p{
+
+      text-align:center;
+
+      margin-bottom:20px;
+
+      font-size:18px;
+
+    }
+
+    .contact a{
+
+      color:#38bdf8;
+
+      text-decoration:none;
+
+    }
+
+    /* FOOTER */
+
+    footer{
+
+      text-align:center;
+
+      padding:30px;
+
+      border-top:1px solid rgba(255,255,255,0.1);
+
+      color:#94a3b8;
+
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      body{
+        cursor:auto;
+      }
+
+      .cursor{
+        display:none;
+      }
+
+      .navbar{
+
+        flex-direction:column;
+
+        gap:15px;
+
+      }
+
+      nav{
+
+        justify-content:center;
+
+      }
+
+      nav a{
+
+        margin:10px;
+
+      }
+
+      .hero h1{
+
+        font-size:45px;
+
+      }
+
+      .typing{
+
+        font-size:20px;
+
+      }
+
+      .profile-img{
+
+        width:170px;
+        height:170px;
+
+      }
+
+      .section-title{
+
+        font-size:34px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- PARTICLES -->
+
+  <div id="particles-js"></div>
+
+  <!-- CURSOR -->
+
+  <div class="cursor"></div>
+
+  <!-- NAVBAR -->
+
+  <header class="navbar">
+
+    <div class="logo">
+      Kodam Mahesh
+    </div>
+
+    <nav>
+
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <img src="C:\Users\MAHESH\OneDrive\Pictures\WhatsApp Image 2026-05-28 at 6.43.45 PM.jpeg" class="profile-img">
+
+      <h1>
+        Hi, I'm Kodam Mahesh
+      </h1>
+
+      <div class="typing"></div>
+
+      <p>
+        Passionate Full Stack Developer building scalable,
+        responsive, and modern web applications using
+        React.js, Node.js, Express.js, PostgreSQL,
+        JavaScript, and Python.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#projects" class="btn primary">
+          View Projects
+        </a>
+
+        <a href="#contact" class="btn secondary">
+          Contact Me
+        </a>
+
+      </div>
+
+      <!-- SOCIAL ICONS -->
+
+      <div class="social-icons">
+
+        <a href="https://www.linkedin.com/in/kodam-mahesh"
+     target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
+        </a>
+
+        <a href="https://github.com/mahesh-1464"
+     target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png">
+        </a>
+
+    <a href="C:\Users\MAHESH\Downloads\mahesh_kodam (1).pdf" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="Resume">
+</a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="section-title" data-aos="fade-up">
+      About Me
+    </h2>
+
+    <div class="glass-card" data-aos="zoom-in">
+
+      <p>
+        I am a passionate and dedicated Full Stack Developer
+        from Hyderabad with strong knowledge in frontend
+        and backend web development.
+      </p>
+
+      <br>
+
+      <p>
+        I specialize in building responsive,
+        scalable, and modern web applications
+        using React.js, Node.js, Express.js,
+        PostgreSQL, JavaScript, Python,
+        HTML, and CSS.
+      </p>
+
+      <br>
+
+      <p>
+        I completed my Bachelor of Technology
+        in Information Technology from
+        CMR Technical Campus.
+      </p>
+
+      <br>
+
+      <p>
+        I worked at Delightech Innovations Pvt. Ltd.
+        where I contributed to developing
+        dashboard systems, backend APIs,
+        database integration, and responsive interfaces.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title" data-aos="fade-up">
+      Skills
+    </h2>
+
+    <div class="skills-grid">
+
+      <div class="glass-card skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png">
+        <h3>JavaScript</h3>
+      </div>
+
+      <div class="glass-card skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png">
+        <h3>Node.js</h3>
+      </div>
+
+      <div class="glass-card skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png">
+        <h3>React.js</h3>
+      </div>
+
+      <div class="glass-card skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png">
+        <h3>Python</h3>
+      </div>
+
+      <div class="glass-card skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png">
+        <h3>Java</h3>
+      </div>
+
+      <div class="glass-card skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png">
+        <h3>CSS</h3>
+      </div>
+
+      <div class="glass-card skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png">
+        <h3>HTML</h3>
+      </div>
+
+      <div class="glass-card skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png">
+        <h3>PostgreSQL</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+
+    <h2 class="section-title" data-aos="fade-up">
+      Experience
+    </h2>
+
+    <div class="glass-card" data-aos="flip-up">
+
+      <h3 style="margin-bottom:15px; color:#38bdf8;">
+        Full Stack Developer
+      </h3>
+
+      <p>
+        <strong>
+          Delightech Innovations Pvt. Ltd., Hyderabad
+        </strong>
+      </p>
+
+      <p style="margin-top:10px;">
+        July 2025 – February 2026
+      </p>
+
+      <ul>
+
+        <li>
+          Developed full-stack web applications
+          using React.js, Node.js, Express.js,
+          and PostgreSQL.
+        </li>
+
+        <li>
+          Built admin dashboard systems for
+          workers, attendance, inventory,
+          analytics, and feedback management.
+        </li>
+
+        <li>
+          Designed REST APIs and integrated
+          backend database systems.
+        </li>
+
+        <li>
+          Developed responsive user interfaces
+          with reusable frontend components.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+  <h2 class="section-title" data-aos="fade-up">
+    Projects
+  </h2>
+
+  <div class="projects-grid">
+
+    <!-- PROJECT 1 -->
+
+    <div class="glass-card project-card" data-aos="flip-left">
+
+      <img
+      src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1200&auto=format&fit=crop"
+      class="project-img">
+
+      <h3>
+        Block Hunter: Federated Learning for Cyber Threat Hunting
+      </h3>
+
+      <p class="tech-stack">
+
+        <strong>
+          Tech Stack:
+        </strong>
+
+        Federated Learning, Blockchain, Python, IIoT
+
+      </p>
+
+      <p>
+        Designed a decentralized federated learning framework
+        integrated with blockchain technology for secure cyber
+        threat detection in Industrial Internet of Things (IIoT)
+        networks. Enhanced privacy, security, and collaborative
+        threat intelligence sharing.
+      </p>
+
+    </div>
+
+    <!-- PROJECT 2 -->
+
+    <div class="glass-card project-card" data-aos="flip-right">
+
+      <img
+      src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1200&auto=format&fit=crop"
+      class="project-img">
+
+      <h3>
+        Detecting Web Attacks with End-to-End Deep Learning
+      </h3>
+
+      <p class="tech-stack">
+
+        <strong>
+          Tech Stack:
+        </strong>
+
+        Python, TensorFlow, Keras, LSTM
+
+      </p>
+
+      <p>
+        Built and trained LSTM deep learning models to detect
+        and classify web-based cyberattacks. Implemented data
+        preprocessing, model training, evaluation, and attack
+        classification for enhanced web security.
+      </p>
+
+    </div>
+
+    <!-- PROJECT 3 -->
+
+    <div class="glass-card project-card" data-aos="zoom-in">
+
+      <img
+      src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1200&auto=format&fit=crop"
+      class="project-img">
+
+      <h3>
+        Blockchain Certificate Verification
+      </h3>
+
+      <p class="tech-stack">
+
+        <strong>
+          Tech Stack:
+        </strong>
+
+        Blockchain, HTML, CSS, JavaScript
+
+      </p>
+
+      <p>
+        Developed a blockchain-based platform to issue and verify
+        digital certificates securely. Ensured authenticity,
+        transparency, and tamper-proof certificate storage using
+        blockchain technology.
+      </p>
+
+    </div>
+
+    <!-- PROJECT 4 -->
+
+    <div class="glass-card project-card" data-aos="flip-left">
+
+      <img
+      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+      class="project-img">
+
+      <h3>
+        InService
+      </h3>
+
+      <p class="tech-stack">
+
+        <strong>
+          Tech Stack:
+        </strong>
+
+        React.js, Node.js, Express.js, PostgreSQL
+
+      </p>
+
+      <p>
+        Developed a comprehensive admin dashboard for managing
+        workers, attendance, inventory, analytics, and feedback
+        using modern full-stack technologies and secure APIs.
+      </p>
+
+    </div>
+
+    <!-- PROJECT 5 -->
+
+    <div class="glass-card project-card" data-aos="flip-right">
+
+      <img
+      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop"
+      class="project-img">
+
+      <h3>
+        R.P Welfare Trust Website
+      </h3>
+
+      <p class="tech-stack">
+
+        <strong>
+          Tech Stack:
+        </strong>
+
+        HTML, CSS, JavaScript
+
+      </p>
+
+      <p>
+        Built a fully responsive NGO website with Home, About,
+        Programs, Gallery, Donation, and Contact pages,
+        ensuring accessibility and mobile responsiveness.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- EDUCATION -->
+
+  <section id="education">
+
+    <h2 class="section-title" data-aos="fade-up">
+      Education
+    </h2>
+
+    <div class="glass-card" data-aos="zoom-in">
+
+      <h3 style="margin-bottom:15px; color:#38bdf8;">
+        Bachelor of Technology
+      </h3>
+
+      <p>
+        <strong>
+          CMR Technical Campus, Hyderabad
+        </strong>
+      </p>
+
+      <p>
+        Information Technology
+      </p>
+
+      <p>
+        2021 – 2025
+      </p>
+
+      <p>
+        CGPA: 6.56
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="contact">
+
+    <h2 class="section-title">
+      Contact
+    </h2>
+
+    <div class="glass-card">
+
+      <p>
+        📧 Email:
+        <a href="mailto:mkodam08@gmail.com">
+          mkodam08@gmail.com
+        </a>
+      </p>
+
+      <p>
+        📱 Phone:
+        <a href="tel:+917702280174">
+          +91 7702280174
+        </a>
+      </p>
+
+      <p>
+        💼 LinkedIn:
+        <a href="https://linkedin.com/in/kodam-mahesh" target="_blank">
+          linkedin.com/in/kodam-mahesh
+        </a>
+      </p>
+
+      <p>
+        📍 Hyderabad, Telangana, India
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 Kodam Mahesh | All Rights Reserved
+
+  </footer>
+
+  <!-- PARTICLES JS -->
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <script>
+
+    particlesJS("particles-js", {
+
+      particles: {
+
+        number: {
+          value:80
+        },
+
+        size: {
+          value:3
+        },
+
+        move: {
+          speed:2
+        },
+
+        line_linked: {
+          enable:true
+        }
+
+      }
+
+    });
+
+  </script>
+
+  <!-- CURSOR -->
+
+  <script>
+
+    const cursor =
+    document.querySelector('.cursor');
+
+    document.addEventListener('mousemove', e => {
+
+      cursor.style.left = e.clientX + 'px';
+
+      cursor.style.top = e.clientY + 'px';
+
+    });
+
+  </script>
+
+  <!-- TYPING EFFECT -->
+
+  <script>
+
+    const typing =
+    document.querySelector(".typing");
+
+    const texts = [
+
+      "Full Stack Developer",
+      "React Developer",
+      "Backend Developer",
+      "UI/UX Enthusiast"
+
+    ];
+
+    let index = 0;
+    let char = 0;
+    let current = "";
+    let isDeleting = false;
+
+    function type(){
+
+      current = texts[index];
+
+      if(!isDeleting){
+
+        typing.textContent =
+        current.substring(0,char++);
+
+      }else{
+
+        typing.textContent =
+        current.substring(0,char--);
+
+      }
+
+      if(char > current.length){
+
+        isDeleting = true;
+
+        setTimeout(type,1000);
+
+        return;
+
+      }
+
+      if(char < 0){
+
+        isDeleting = false;
+
+        index = (index + 1) % texts.length;
+
+      }
+
+      setTimeout(type,isDeleting ? 60 : 120);
+
+    }
+
+    type();
+
+  </script>
+
+  <!-- 3D CARD EFFECT -->
+
+  <script>
+
+    const cards =
+    document.querySelectorAll('.glass-card');
+
+    cards.forEach(card => {
+
+      card.addEventListener('mousemove', (e) => {
+
+        const rect =
+        card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX =
+        ((y - centerY) / 15);
+
+        const rotateY =
+        ((centerX - x) / 15);
+
+        card.style.transform = `
+          rotateX(${rotateX}deg)
+          rotateY(${rotateY}deg)
+          scale(1.03)
+        `;
+
+      });
+
+      card.addEventListener('mouseleave', () => {
+
+        card.style.transform =
+        'rotateX(0) rotateY(0) scale(1)';
+
+      });
+
+    });
+
+  </script>
+
+  <!-- AOS -->
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+
+    AOS.init({
+
+      duration:1200,
+      once:false
+
+    });
+
+  </script>
+
+</body>
+
+</html>
+```
